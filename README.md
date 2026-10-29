@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>小数の筆算練習</title>
-
 <style>
   :root {
     --blue: #2457a5;
@@ -14,13 +13,8 @@
     --cell: 48px;
   }
 
-  * {
-    box-sizing: border-box;
-  }
-
-  [hidden] {
-    display: none !important;
-  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
 
   body {
     margin: 0;
@@ -52,6 +46,8 @@
     font-size: clamp(23px, 2vw, 30px);
   }
 
+  p { line-height: 1.6; }
+
   button {
     min-height: 52px;
     padding: 10px 16px;
@@ -80,11 +76,6 @@
     margin: 5vh auto;
   }
 
-  .menu p,
-  .note {
-    line-height: 1.65;
-  }
-
   .menu-buttons,
   .toolbar,
   .controls {
@@ -94,9 +85,7 @@
     gap: 11px;
   }
 
-  .menu-buttons {
-    margin: 14px 0 29px;
-  }
+  .menu-buttons { margin: 14px 0 29px; }
 
   .toolbar {
     justify-content: space-between;
@@ -104,9 +93,7 @@
     border-bottom: 3px solid #252525;
   }
 
-  .toolbar h1 {
-    margin-bottom: 5px;
-  }
+  .toolbar h1 { margin-bottom: 5px; }
 
   .timer {
     color: var(--blue);
@@ -139,6 +126,14 @@
     font-weight: normal;
   }
 
+  .question.selected {
+    border: 3px solid var(--blue);
+    padding: 11px;
+    background: #eef4ff;
+  }
+
+  .question.done { background: #e7f7ec; }
+
   .question-title {
     display: flex;
     align-items: center;
@@ -146,10 +141,8 @@
     margin-bottom: 6px;
     font-size: 20px;
     font-weight: 700;
-    line-height: 1.3;
   }
 
-  /* ★小問の番号を四角で囲む */
   .question-number {
     display: inline-flex;
     flex: 0 0 auto;
@@ -159,24 +152,11 @@
     height: 1.65em;
     border: 2px solid currentColor;
     border-radius: 2px;
-    font-size: 0.9em;
+    font-size: .9em;
     line-height: 1;
-    font-variant-numeric: tabular-nums;
   }
 
-  .question.selected {
-    border: 3px solid var(--blue);
-    padding: 11px;
-    background: #eef4ff;
-  }
-
-  .question.done {
-    background: #e7f7ec;
-  }
-
-  .question .progress {
-    font-size: 15px;
-  }
+  .progress { font-size: 15px; }
 
   .work {
     min-width: 0;
@@ -252,13 +232,8 @@
     box-shadow: inset 0 0 0 2px #d4a535;
   }
 
-  .hissan td.checked {
-    color: var(--green);
-  }
-
-  .hissan td.faint {
-    color: #9ba6b5;
-  }
+  .hissan td.checked { color: var(--green); }
+  .hissan td.faint { color: #9ba6b5; }
 
   .hissan td.decimal-after::after {
     content: ".";
@@ -274,14 +249,12 @@
     margin: 13px 0;
     font-size: 21px;
     font-weight: bold;
-    line-height: 1.6;
   }
 
   .shift-counter {
     margin: 8px 0 14px;
     color: var(--blue);
     font-weight: bold;
-    line-height: 1.6;
   }
 
   .answer-area {
@@ -296,7 +269,6 @@
     padding: 4px 12px;
     border-bottom: 3px solid #222;
     font-family: "Courier New", monospace;
-    font-variant-numeric: tabular-nums;
   }
 
   .answer-box.active {
@@ -325,39 +297,24 @@
     min-height: 1.7em;
     font-size: 19px;
     font-weight: bold;
-    line-height: 1.5;
   }
 
-  .feedback.ok {
-    color: var(--green);
-  }
+  .feedback.ok { color: var(--green); }
+  .feedback.ng { color: var(--red); }
 
-  .feedback.ng {
-    color: var(--red);
-  }
-
-  .bottom-controls {
-    margin-top: 19px;
-  }
+  .bottom-controls { margin-top: 19px; }
 
   /* iPad横画面 */
   @media (min-width: 760px) and (max-width: 1100px) {
-    main {
-      padding: 16px;
-    }
+    main { padding: 16px; }
 
     .layout {
       grid-template-columns: minmax(200px, 25%) minmax(0, 1fr);
       gap: 15px;
     }
 
-    .work {
-      padding: 16px;
-    }
-
-    :root {
-      --cell: 42px;
-    }
+    .work { padding: 16px; }
+    :root { --cell: 42px; }
 
     .hissan td {
       height: 49px;
@@ -373,13 +330,8 @@
 
   /* 縦画面・小さい画面 */
   @media (max-width: 759px) {
-    main {
-      padding: 12px;
-    }
-
-    .layout {
-      grid-template-columns: 1fr;
-    }
+    main { padding: 12px; }
+    .layout { grid-template-columns: 1fr; }
 
     .question-list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -395,17 +347,9 @@
       font-size: 16px;
     }
 
-    .question .progress {
-      font-size: 14px;
-    }
-
-    .work {
-      padding: 12px;
-    }
-
-    :root {
-      --cell: 38px;
-    }
+    .progress { font-size: 14px; }
+    .work { padding: 12px; }
+    :root { --cell: 38px; }
 
     .hissan td {
       height: 44px;
@@ -427,8 +371,10 @@
     <h1>小数の筆算練習</h1>
 
     <p>
-      かけ算は数字の部分を先に筆算し、最後に答えの小数点を動かします。
-      わり算は筆算を始める前に、両方の小数点を動かします。
+      かけ算は数字の部分を先に筆算し、
+      最後に答えの小数点を動かします。
+      わり算は筆算を始める前に、
+      両方の小数点を動かします。
     </p>
 
     <h2>① 計算を選ぶ</h2>
@@ -488,9 +434,8 @@
   const $ = id => document.getElementById(id);
 
   const SHEET_SIZE = 6;
-  const TIME_LIMIT_MS = 3 * 60 * 1000;
-  const DIVISION_COLUMNS = 7;
-  const MULTIPLICATION_COLUMNS = 7;
+  const TIME_LIMIT_MS = 180000;
+  const COLUMNS = 7;
   const DIVISION_BASE_COLUMN = 2;
 
   let operation = "multiply";
@@ -509,10 +454,7 @@
     ) + min;
   }
 
-  /*
-    問題の数は100倍した整数で保持する。
-    40 → 0.4、25 → 0.25、1 → 0.01。
-  */
+  /* 数値は元の小数を100倍した整数で保持 */
   function shownNumber(n) {
     return (n / 100)
       .toFixed(2)
@@ -529,9 +471,7 @@
   }
 
   function pointMovedLeft(integer, places) {
-    if (places === 0) {
-      return String(integer);
-    }
+    if (places === 0) return String(integer);
 
     const digits = String(integer).padStart(
       places + 1,
@@ -545,43 +485,23 @@
     );
   }
 
-  function exactDecimal(scaledInteger, places) {
-    const text = pointMovedLeft(
-      scaledInteger,
-      places
-    );
-
-    if (!text.includes(".")) {
-      return text;
-    }
-
-    return text
-      .replace(/0+$/, "")
-      .replace(/\.$/, "");
+  function exactDecimal(integer, places) {
+    return pointMovedLeft(integer, places)
+      .replace(/\.?0+$/, "");
   }
 
-  /*
-    わり算で小数点を動かす途中の表示。
-    例：0.34 ÷ 0.8
-        3.4 ÷ 8.0
-         34 ÷ 80
-  */
   function movedDivisionText(n, shift, totalShifts) {
-    if (shift === 0) {
-      return shownNumber(n);
-    }
+    if (shift === 0) return shownNumber(n);
 
-    const scaled = n * (10 ** shift);
+    const value = n * (10 ** shift) / 100;
     const remaining = totalShifts - shift;
 
-    if (remaining === 0) {
-      return String(scaled / 100);
-    }
-
-    return (scaled / 100).toFixed(remaining);
+    return remaining === 0
+      ? String(value)
+      : value.toFixed(remaining);
   }
 
-  /* 小数第4位までで割り切れるわり算の候補 */
+  /* 小数第4位までで割り切れる問題を用意 */
   const divisionCandidates = [];
   const mixedDivisionCandidates = [];
 
@@ -591,20 +511,16 @@
         (a * 10000) % b === 0 &&
         a <= b * 9
       ) {
-        const pair = [a, b];
-        divisionCandidates.push(pair);
+        divisionCandidates.push([a, b]);
 
-        if (
-          decimalPlaces(a) !== decimalPlaces(b)
-        ) {
-          mixedDivisionCandidates.push(pair);
+        if (decimalPlaces(a) !== decimalPlaces(b)) {
+          mixedDivisionCandidates.push([a, b]);
         }
       }
     }
   }
 
   function generateNumbers(index) {
-    // 最初の問題は動作を確かめやすい例にする。
     if (index === 0 && operation === "multiply") {
       return [40, 25]; // 0.4 × 0.25
     }
@@ -614,26 +530,20 @@
     }
 
     if (operation === "multiply") {
-      // 一部の問題は小数の桁数を必ず異ならせる。
       if (index % 2 === 0) {
         const onePlace = random(1, 9) * 10;
         let twoPlaces;
 
         do {
           twoPlaces = random(1, 99);
-        } while (
-          decimalPlaces(twoPlaces) !== 2
-        );
+        } while (decimalPlaces(twoPlaces) !== 2);
 
-        return Math.random() < 0.5
+        return Math.random() < .5
           ? [onePlace, twoPlaces]
           : [twoPlaces, onePlace];
       }
 
-      return [
-        random(1, 100),
-        random(1, 100)
-      ];
+      return [random(1, 100), random(1, 100)];
     }
 
     const pool = index % 2 === 0
@@ -656,12 +566,9 @@
       const topInteger = digitsAsInteger(a);
       const bottomInteger = digitsAsInteger(b);
 
-      integerProduct =
-        topInteger * bottomInteger;
-
+      integerProduct = topInteger * bottomInteger;
       answerPlaces =
-        decimalPlaces(a) +
-        decimalPlaces(b);
+        decimalPlaces(a) + decimalPlaces(b);
 
       const bottomDigits = String(bottomInteger)
         .split("")
@@ -672,12 +579,10 @@
         tasks.push({
           type: "partial",
           place,
-          expected: String(
-            topInteger * digit
-          ),
+          expected: String(topInteger * digit),
           instruction:
             `${place + 1}段目：小数点をいったん考えず、` +
-            `${topInteger} × ${digit} を黄色いマスに入力`
+            `${topInteger} × ${digit} を入力`
         });
       });
 
@@ -686,15 +591,13 @@
           type: "sum",
           expected: String(integerProduct),
           instruction:
-            "部分積を位をそろえて足し、整数の合計を入力"
+            "部分積を位をそろえて足し、合計を入力"
         });
       }
 
       tasks.push({
         type: "answerShift",
-        expected: exactDecimal(a * b, 4),
-        instruction:
-          "整数の積の小数点を左へ動かして答えを作る"
+        expected: exactDecimal(a * b, 4)
       });
 
     } else {
@@ -704,18 +607,15 @@
       );
 
       const factor = 10 ** requiredShifts;
-      const dividend = (a * factor) / 100;
-      const divisor = (b * factor) / 100;
+      const dividend = a * factor / 100;
+      const divisor = b * factor / 100;
 
       let partial = dividend;
       let remainder = 0;
       let place = 0;
 
       do {
-        const digit = Math.floor(
-          partial / divisor
-        );
-
+        const digit = Math.floor(partial / divisor);
         const product = digit * divisor;
         remainder = partial - product;
 
@@ -742,7 +642,7 @@
             `${placeName}の商を、上の黄色いマスに入力`
         });
 
-        // 商が0なら「ひく」「余り」を飛ばす。
+        /* 商が0なら「ひく」「余り」を飛ばす */
         if (digit !== 0) {
           step.productTask = tasks.length;
 
@@ -769,10 +669,7 @@
         partial = remainder * 10;
         place++;
 
-      } while (
-        remainder !== 0 &&
-        place <= 4
-      );
+      } while (remainder !== 0 && place <= 4);
 
       tasks.push({
         type: "answer",
@@ -820,19 +717,15 @@
     $("menu").hidden = true;
     $("app").hidden = false;
 
-    $("title").textContent =
-      operation === "divide"
-        ? "小数のわり算・筆算"
-        : "小数のかけ算・筆算";
+    $("title").textContent = operation === "divide"
+      ? "小数のわり算・筆算"
+      : "小数のかけ算・筆算";
 
     clearInterval(timerHandle);
 
     if (mode === "timed") {
       deadline = Date.now() + TIME_LIMIT_MS;
-      timerHandle = setInterval(
-        updateTimer,
-        100
-      );
+      timerHandle = setInterval(updateTimer, 100);
     }
 
     createSheet();
@@ -853,22 +746,16 @@
 
     const left = Math.max(
       0,
-      Math.ceil(
-        (deadline - Date.now()) / 1000
-      )
+      Math.ceil((deadline - Date.now()) / 1000)
     );
 
     const minutes = Math.floor(left / 60);
-    const seconds = String(
-      left % 60
-    ).padStart(2, "0");
+    const seconds = String(left % 60).padStart(2, "0");
 
     $("timer").textContent =
       `残り ${minutes}:${seconds}`;
 
-    if (left === 0 && !finished) {
-      finishTimed();
-    }
+    if (left === 0 && !finished) finishTimed();
   }
 
   function timeIsUp() {
@@ -876,29 +763,18 @@
       mode === "timed" &&
       Date.now() >= deadline
     ) {
-      if (!finished) {
-        finishTimed();
-      }
-
+      if (!finished) finishTimed();
       return true;
     }
 
     return false;
   }
 
-  function addText(
-    tag,
-    className,
-    text,
-    parent
-  ) {
-    const element =
-      document.createElement(tag);
-
+  function addText(tag, className, text, parent) {
+    const element = document.createElement(tag);
     element.className = className;
     element.textContent = text;
     parent.append(element);
-
     return element;
   }
 
@@ -908,44 +784,25 @@
     onClick,
     options = {}
   ) {
-    const button =
-      document.createElement("button");
-
+    const button = document.createElement("button");
     button.type = "button";
     button.textContent = text;
 
-    if (options.primary) {
-      button.classList.add("primary");
-    }
+    if (options.primary) button.classList.add("primary");
+    if (options.disabled) button.disabled = true;
 
-    if (options.disabled) {
-      button.disabled = true;
-    }
-
-    button.addEventListener(
-      "click",
-      onClick
-    );
-
+    button.addEventListener("click", onClick);
     parent.append(button);
     return button;
   }
 
-  /* □で囲んだ番号を作る */
   function makeQuestionNumber(number) {
-    const span =
-      document.createElement("span");
-
+    const span = document.createElement("span");
     span.className = "question-number";
     span.textContent = String(number);
-
     return span;
   }
 
-  /*
-    筆算の1行を作る。
-    digits は {列番号: 表示する数字}。
-  */
   function makeRow(table, options = {}) {
     const {
       label = "",
@@ -958,44 +815,26 @@
       decimalAfter = -1
     } = options;
 
-    const row =
-      document.createElement("tr");
+    const row = document.createElement("tr");
 
-    if (line) {
-      row.classList.add("line");
-    }
+    if (line) row.classList.add("line");
+    if (bracket) row.classList.add("bracket");
 
-    if (bracket) {
-      row.classList.add("bracket");
-    }
-
-    const labelCell =
-      document.createElement("td");
-
+    const labelCell = document.createElement("td");
     labelCell.className = "label";
     labelCell.textContent = label;
     row.append(labelCell);
 
-    const count = operation === "divide"
-      ? DIVISION_COLUMNS
-      : MULTIPLICATION_COLUMNS;
-
-    for (let col = 0; col < count; col++) {
-      const cell =
-        document.createElement("td");
-
+    for (let col = 0; col < COLUMNS; col++) {
+      const cell = document.createElement("td");
       cell.className = "digit";
-      cell.textContent =
-        digits[col] ?? "";
+      cell.textContent = digits[col] ?? "";
 
       if (inputRange.includes(col)) {
         cell.classList.add("active");
       }
 
-      if (
-        checked &&
-        digits[col] !== undefined
-      ) {
+      if (checked && digits[col] !== undefined) {
         cell.classList.add("checked");
       }
 
@@ -1004,9 +843,7 @@
       }
 
       if (decimalAfter === col) {
-        cell.classList.add(
-          "decimal-after"
-        );
+        cell.classList.add("decimal-after");
       }
 
       if (bracket && col === 0) {
@@ -1019,43 +856,26 @@
     table.append(row);
   }
 
-  function positionedDigits(
-    text,
-    endingColumn
-  ) {
+  function positionedDigits(text, endingColumn) {
     const result = {};
     const chars = [...String(text)];
 
-    chars.forEach(
-      (character, index) => {
-        const col =
-          endingColumn -
-          chars.length +
-          1 +
-          index;
+    chars.forEach((character, index) => {
+      const col =
+        endingColumn - chars.length + 1 + index;
 
-        if (col >= 0) {
-          result[col] = character;
-        }
-      }
-    );
+      if (col >= 0) result[col] = character;
+    });
 
     return result;
   }
 
-  function positionedDecimal(
-    text,
-    endingColumn
-  ) {
-    const parts =
+  function positionedDecimal(text, endingColumn) {
+    const [integerPart, fractionPart] =
       String(text).split(".");
 
-    const integerPart = parts[0];
-    const fractionPart = parts[1];
-
     const allDigits =
-      integerPart +
-      (fractionPart ?? "");
+      integerPart + (fractionPart ?? "");
 
     const digits = positionedDigits(
       allDigits,
@@ -1065,28 +885,16 @@
     let decimalAfter = -1;
 
     if (fractionPart !== undefined) {
-      const startColumn =
+      decimalAfter =
         endingColumn -
         allDigits.length +
-        1;
-
-      decimalAfter =
-        startColumn +
-        integerPart.length -
-        1;
+        integerPart.length;
     }
 
-    return {
-      digits,
-      decimalAfter
-    };
+    return { digits, decimalAfter };
   }
 
-  function activeDigits(
-    q,
-    endingColumn,
-    width
-  ) {
+  function activeDigits(q, endingColumn, width) {
     const start = Math.max(
       0,
       endingColumn - width + 1
@@ -1094,184 +902,120 @@
 
     const inputRange = [];
 
-    for (
-      let col = start;
-      col <= endingColumn;
-      col++
-    ) {
+    for (let col = start; col <= endingColumn; col++) {
       inputRange.push(col);
     }
 
     return {
       inputRange,
-      digits: positionedDigits(
-        q.input,
-        endingColumn
-      )
+      digits: positionedDigits(q.input, endingColumn)
     };
   }
 
-  function drawMultiplication(
-    table,
-    q
-  ) {
-    // 元の小数を表示したまま計算する。
+  function drawMultiplication(table, q) {
+    /* 元の小数を表示したまま数字の部分を計算 */
     makeRow(table, {
       label: "上",
-      ...positionedDecimal(
-        shownNumber(q.a),
-        6
-      )
+      ...positionedDecimal(shownNumber(q.a), 6)
     });
 
     makeRow(table, {
       label: "× 下",
-      ...positionedDecimal(
-        shownNumber(q.b),
-        6
-      ),
+      ...positionedDecimal(shownNumber(q.b), 6),
       line: true
     });
 
-    const bottomInteger =
-      digitsAsInteger(q.b);
-
     const partialCount =
-      String(bottomInteger).length;
+      String(digitsAsInteger(q.b)).length;
 
-    for (
-      let index = 0;
-      index < partialCount;
-      index++
-    ) {
-      if (q.progress < index) {
-        continue;
-      }
+    for (let index = 0; index < partialCount; index++) {
+      if (q.progress < index) continue;
 
       const ending = 6 - index;
-      const current =
-        q.progress === index;
+      const current = q.progress === index;
 
       makeRow(table, {
         label: `${index + 1}段目`,
 
         ...(current
-          ? activeDigits(
-              q,
-              ending,
-              3
-            )
+          ? activeDigits(q, ending, 3)
           : {
-              digits:
-                positionedDigits(
-                  q.tasks[index]
-                    .expected,
-                  ending
-                ),
+              digits: positionedDigits(
+                q.tasks[index].expected,
+                ending
+              ),
               checked: true
             }),
 
-        line:
-          index ===
-          partialCount - 1
+        line: index === partialCount - 1
       });
     }
 
-    if (partialCount > 1) {
-      const sumIndex =
-        partialCount;
+    if (
+      partialCount > 1 &&
+      q.progress >= partialCount
+    ) {
+      const current = q.progress === partialCount;
 
-      if (q.progress >= sumIndex) {
-        const current =
-          q.progress ===
-          sumIndex;
+      makeRow(table, {
+        label: "合計",
 
-        makeRow(table, {
-          label: "合計",
-
-          ...(current
-            ? activeDigits(
-                q,
-                6,
-                5
-              )
-            : {
-                digits:
-                  positionedDigits(
-                    q.tasks[sumIndex]
-                      .expected,
-                    6
-                  ),
-                checked: true
-              })
-        });
-      }
+        ...(current
+          ? activeDigits(q, 6, 5)
+          : {
+              digits: positionedDigits(
+                q.tasks[partialCount].expected,
+                6
+              ),
+              checked: true
+            })
+      });
     }
   }
 
-  function drawDivision(
-    table,
-    q
-  ) {
+  function drawDivision(table, q) {
     const shifting =
-      q.divisionShift <
-      q.requiredShifts;
+      q.divisionShift < q.requiredShifts;
 
     const quotientDigits = {};
     let activeQuotientColumn = -1;
 
     if (!shifting) {
-      q.steps.forEach(
-        (step, index) => {
-          const col =
-            DIVISION_BASE_COLUMN +
-            index;
+      q.steps.forEach((step, index) => {
+        const col = DIVISION_BASE_COLUMN + index;
 
-          if (
-            q.progress >
-            step.quotientTask
-          ) {
-            quotientDigits[col] =
-              String(step.digit);
+        if (q.progress > step.quotientTask) {
+          quotientDigits[col] = String(step.digit);
 
-          } else if (
-            q.progress ===
-            step.quotientTask
-          ) {
-            activeQuotientColumn =
-              col;
+        } else if (q.progress === step.quotientTask) {
+          activeQuotientColumn = col;
 
-            if (q.input !== "") {
-              quotientDigits[col] =
-                q.input;
-            }
+          if (q.input !== "") {
+            quotientDigits[col] = q.input;
           }
         }
-      );
+      });
     }
 
     const showQuotientDecimal =
       !shifting &&
       q.steps.length > 1 &&
-      q.progress >
-        q.steps[0].quotientTask;
+      q.progress > q.steps[0].quotientTask;
 
     makeRow(table, {
       label: "商",
       digits: quotientDigits,
-
       inputRange:
         activeQuotientColumn >= 0
-          ? [
-              activeQuotientColumn
-            ]
+          ? [activeQuotientColumn]
           : [],
-
       decimalAfter:
         showQuotientDecimal
           ? DIVISION_BASE_COLUMN
           : -1
     });
+
+    const factor = 10 ** q.requiredShifts;
 
     const divisorText = shifting
       ? movedDivisionText(
@@ -1279,15 +1023,7 @@
           q.divisionShift,
           q.requiredShifts
         )
-      : String(
-          (
-            q.b *
-            (
-              10 **
-              q.requiredShifts
-            )
-          ) / 100
-        );
+      : String(q.b * factor / 100);
 
     const dividendText = shifting
       ? movedDivisionText(
@@ -1295,21 +1031,12 @@
           q.divisionShift,
           q.requiredShifts
         )
-      : String(
-          (
-            q.a *
-            (
-              10 **
-              q.requiredShifts
-            )
-          ) / 100
-        );
+      : String(q.a * factor / 100);
 
-    const placedDividend =
-      positionedDecimal(
-        dividendText,
-        DIVISION_BASE_COLUMN
-      );
+    const placedDividend = positionedDecimal(
+      dividendText,
+      DIVISION_BASE_COLUMN
+    );
 
     const dividendDigits = {
       ...placedDividend.digits
@@ -1325,19 +1052,13 @@
       ) {
         if (
           q.progress >=
-          q.steps[index]
-            .quotientTask
+          q.steps[index].quotientTask
         ) {
           const col =
-            DIVISION_BASE_COLUMN +
-            index;
+            DIVISION_BASE_COLUMN + index;
 
-          dividendDigits[col] =
-            "0";
-
-          addedZeroColumns.push(
-            col
-          );
+          dividendDigits[col] = "0";
+          addedZeroColumns.push(col);
         }
       }
     }
@@ -1346,269 +1067,167 @@
       label: `${divisorText} ）`,
       digits: dividendDigits,
       bracket: true,
-
-      decimalAfter:
-        placedDividend
-          .decimalAfter,
-
-      faint:
-        addedZeroColumns
+      decimalAfter: placedDividend.decimalAfter,
+      faint: addedZeroColumns
     });
 
-    if (shifting) {
-      return;
-    }
+    if (shifting) return;
 
-    q.steps.forEach(
-      (step, index) => {
-        if (
-          q.progress <
-          step.quotientTask
-        ) {
-          return;
-        }
+    q.steps.forEach((step, index) => {
+      if (q.progress < step.quotientTask) return;
 
-        const ending =
-          DIVISION_BASE_COLUMN +
-          index;
+      const ending = DIVISION_BASE_COLUMN + index;
 
-        if (index > 0) {
-          const downDigits =
-            positionedDigits(
-              step.partial,
-              ending
-            );
+      if (index > 0) {
+        const downDigits = positionedDigits(
+          step.partial,
+          ending
+        );
 
-          makeRow(table, {
-            label: "↓",
-            digits: downDigits,
-            faint:
-              Object.keys(
-                downDigits
-              ).map(Number)
-          });
-        }
-
-        // 商が0なら、ひく・余りの段は表示しない。
-        if (
-          step.productTask !== null &&
-          q.progress >=
-            step.productTask
-        ) {
-          const current =
-            q.progress ===
-            step.productTask;
-
-          makeRow(table, {
-            label: "ひく",
-
-            ...(current
-              ? activeDigits(
-                  q,
-                  ending,
-                  3
-                )
-              : {
-                  digits:
-                    positionedDigits(
-                      step.product,
-                      ending
-                    ),
-                  checked: true
-                }),
-
-            line: true
-          });
-        }
-
-        if (
-          step.remainderTask !== null &&
-          q.progress >=
-            step.remainderTask
-        ) {
-          const current =
-            q.progress ===
-            step.remainderTask;
-
-          makeRow(table, {
-            label: "余り",
-
-            ...(current
-              ? activeDigits(
-                  q,
-                  ending,
-                  3
-                )
-              : {
-                  digits:
-                    positionedDigits(
-                      step.remainder,
-                      ending
-                    ),
-                  checked: true
-                })
-          });
-        }
+        makeRow(table, {
+          label: "↓",
+          digits: downDigits,
+          faint: Object.keys(downDigits).map(Number)
+        });
       }
-    );
+
+      /* 商が0の位は、ひく・余りを飛ばす */
+      if (
+        step.productTask !== null &&
+        q.progress >= step.productTask
+      ) {
+        const current =
+          q.progress === step.productTask;
+
+        makeRow(table, {
+          label: "ひく",
+
+          ...(current
+            ? activeDigits(q, ending, 3)
+            : {
+                digits: positionedDigits(
+                  step.product,
+                  ending
+                ),
+                checked: true
+              }),
+
+          line: true
+        });
+      }
+
+      if (
+        step.remainderTask !== null &&
+        q.progress >= step.remainderTask
+      ) {
+        const current =
+          q.progress === step.remainderTask;
+
+        makeRow(table, {
+          label: "余り",
+
+          ...(current
+            ? activeDigits(q, ending, 3)
+            : {
+                digits: positionedDigits(
+                  step.remainder,
+                  ending
+                ),
+                checked: true
+              })
+        });
+      }
+    });
   }
 
   function renderQuestionList() {
-    const list =
-      $("questionList");
-
+    const list = $("questionList");
     list.replaceChildren();
 
-    questions.forEach(
-      (q, index) => {
-        const button =
-          document.createElement(
-            "button"
-          );
+    questions.forEach((q, index) => {
+      const button = document.createElement("button");
 
-        button.className =
-          "question" +
-          (
-            index === selected
-              ? " selected"
-              : ""
-          ) +
-          (
-            q.done
-              ? " done"
-              : ""
-          );
+      button.className =
+        "question" +
+        (index === selected ? " selected" : "") +
+        (q.done ? " done" : "");
 
-        const sign =
-          operation === "divide"
-            ? "÷"
-            : "×";
+      const sign = operation === "divide" ? "÷" : "×";
+      const title = document.createElement("span");
 
-        /* ★問題一覧の番号を四角で囲む */
-        const title =
-          document.createElement(
-            "span"
-          );
+      title.className = "question-title";
+      title.append(makeQuestionNumber(index + 1));
 
-        title.className =
-          "question-title";
+      title.append(
+        document.createTextNode(
+          `${shownNumber(q.a)} ${sign} ${shownNumber(q.b)}`
+        )
+      );
 
-        title.append(
-          makeQuestionNumber(
-            index + 1
-          )
-        );
+      button.append(title);
 
-        title.append(
-          document.createTextNode(
-            `${shownNumber(q.a)} ` +
-            `${sign} ` +
-            `${shownNumber(q.b)}`
-          )
-        );
+      let progressText;
 
-        button.append(title);
+      if (q.done) {
+        progressText =
+          `答え：${q.tasks.at(-1).expected}　✓`;
 
-        let progressText;
+      } else if (
+        operation === "divide" &&
+        q.divisionShift < q.requiredShifts
+      ) {
+        progressText =
+          `小数点：${q.divisionShift} / ` +
+          `${q.requiredShifts}桁`;
 
-        if (q.done) {
-          progressText =
-            `答え：${
-              q.tasks.at(-1)
-                .expected
-            }　✓`;
+      } else if (
+        operation === "multiply" &&
+        q.tasks[q.progress]?.type === "answerShift"
+      ) {
+        progressText =
+          `答えの小数点：${q.answerShift} / ` +
+          `${q.answerPlaces}桁`;
 
-        } else if (
-          operation === "divide" &&
-          q.divisionShift <
-            q.requiredShifts
-        ) {
-          progressText =
-            `小数点：${
-              q.divisionShift
-            } / ${
-              q.requiredShifts
-            }桁`;
-
-        } else if (
-          operation === "multiply" &&
-          q.tasks[
-            q.progress
-          ]?.type ===
-            "answerShift"
-        ) {
-          progressText =
-            `答えの小数点：${
-              q.answerShift
-            } / ${
-              q.answerPlaces
-            }桁`;
-
-        } else {
-          progressText =
-            `筆算：${
-              q.progress
-            } / ${
-              q.tasks.length
-            }段階`;
-        }
-
-        addText(
-          "span",
-          "progress",
-          progressText,
-          button
-        );
-
-        button.addEventListener(
-          "click",
-          () => {
-            if (
-              finished ||
-              timeIsUp()
-            ) {
-              return;
-            }
-
-            selected = index;
-            feedback = {
-              message: "",
-              kind: ""
-            };
-
-            render();
-          }
-        );
-
-        list.append(button);
+      } else {
+        progressText =
+          `筆算：${q.progress} / ` +
+          `${q.tasks.length}段階`;
       }
-    );
+
+      addText(
+        "span",
+        "progress",
+        progressText,
+        button
+      );
+
+      button.addEventListener("click", () => {
+        if (finished || timeIsUp()) return;
+
+        selected = index;
+        feedback = { message: "", kind: "" };
+        render();
+      });
+
+      list.append(button);
+    });
   }
 
   function render() {
-    $("status").textContent =
-      mode === "timed"
-        ? `タイムアタック｜正解 ${score}問`
-        : `通常練習｜正解 ${score} / ${SHEET_SIZE}問`;
+    $("status").textContent = mode === "timed"
+      ? `タイムアタック｜正解 ${score}問`
+      : `通常練習｜正解 ${score} / ${SHEET_SIZE}問`;
 
     $("newQuestions").hidden =
-      mode === "timed" ||
-      finished;
+      mode === "timed" || finished;
 
     renderQuestionList();
 
-    const work =
-      $("workContents");
-
+    const work = $("workContents");
     work.replaceChildren();
 
     if (finished) {
-      addText(
-        "h2",
-        "",
-        "終了！",
-        work
-      );
+      addText("h2", "", "終了！", work);
 
       addText(
         "p",
@@ -1620,76 +1239,34 @@
       return;
     }
 
-    const q =
-      questions[selected];
+    const q = questions[selected];
 
     const divisionShifting =
       operation === "divide" &&
-      q.divisionShift <
-        q.requiredShifts;
+      q.divisionShift < q.requiredShifts;
 
-    /* ★右側の問題番号も四角で囲む */
-    const heading =
-      document.createElement(
-        "h2"
-      );
-
-    heading.className =
-      "work-heading";
-
-    heading.append(
-      document.createTextNode(
-        "問題"
-      )
-    );
-
-    heading.append(
-      makeQuestionNumber(
-        selected + 1
-      )
-    );
-
+    const heading = document.createElement("h2");
+    heading.className = "work-heading";
+    heading.append(document.createTextNode("問題"));
+    heading.append(makeQuestionNumber(selected + 1));
     work.append(heading);
 
     addText(
       "p",
       "original-problem",
       `${shownNumber(q.a)} ` +
-      `${
-        operation === "divide"
-          ? "÷"
-          : "×"
-      } ` +
+      `${operation === "divide" ? "÷" : "×"} ` +
       `${shownNumber(q.b)}`,
       work
     );
 
-    let note;
+    const note = divisionShifting
+      ? "筆算の図の中で、両方の小数点を同じ回数だけ右へ動かしましょう。"
+      : operation === "divide"
+        ? "小数点を動かした後の数で筆算します。商が0の位は引き算を飛ばします。"
+        : "元の小数を表示したまま数字の部分を筆算します。答えの小数点は最後に動かします。";
 
-    if (divisionShifting) {
-      note =
-        "下の筆算の図で、わる数とわられる数の小数点を" +
-        "同じ回数だけ右へ動かしましょう。";
-
-    } else if (
-      operation === "divide"
-    ) {
-      note =
-        "小数点を動かした後の数で筆算します。" +
-        "商が0の位は、引き算を飛ばします。";
-
-    } else {
-      note =
-        "元の小数を表示したまま、数字の部分を筆算します。" +
-        "答えの小数点は最後に動かします。";
-    }
-
-    addText(
-      "p",
-      "note",
-      note,
-      work
-    );
+    addText("p", "note", note, work);
 
     const scroll = addText(
       "div",
@@ -1698,89 +1275,56 @@
       work
     );
 
-    const table =
-      document.createElement(
-        "table"
-      );
-
-    table.className =
-      "hissan";
-
-    table.setAttribute(
-      "aria-label",
-      "小数の筆算"
-    );
-
+    const table = document.createElement("table");
+    table.className = "hissan";
+    table.setAttribute("aria-label", "小数の筆算");
     scroll.append(table);
 
-    if (
-      operation === "divide"
-    ) {
+    if (operation === "divide") {
       drawDivision(table, q);
     } else {
-      drawMultiplication(
-        table,
-        q
-      );
+      drawMultiplication(table, q);
     }
 
-    const answerArea =
-      addText(
-        "div",
-        "answer-area",
-        "",
-        work
-      );
-
-    addText(
-      "span",
+    const answerArea = addText(
+      "div",
+      "answer-area",
       "",
-      "答え：",
+      work
+    );
+
+    addText("span", "", "答え：", answerArea);
+
+    const answerBox = addText(
+      "span",
+      "answer-box",
+      "",
       answerArea
     );
 
-    const answerBox =
-      addText(
-        "span",
-        "answer-box",
-        "",
-        answerArea
-      );
-
-    const currentTask =
-      q.tasks[q.progress];
+    const currentTask = q.tasks[q.progress];
 
     if (q.done) {
       answerBox.textContent =
-        q.tasks.at(-1)
-          .expected;
+        q.tasks.at(-1).expected;
 
     } else if (
       operation === "multiply" &&
-      currentTask?.type ===
-        "answerShift"
+      currentTask?.type === "answerShift"
     ) {
-      answerBox.classList.add(
-        "active"
-      );
+      answerBox.classList.add("active");
 
-      answerBox.textContent =
-        pointMovedLeft(
-          q.integerProduct,
-          q.answerShift
-        );
+      answerBox.textContent = pointMovedLeft(
+        q.integerProduct,
+        q.answerShift
+      );
 
     } else if (
       operation === "divide" &&
-      currentTask?.type ===
-        "answer"
+      currentTask?.type === "answer"
     ) {
-      answerBox.classList.add(
-        "active"
-      );
-
-      answerBox.textContent =
-        q.input;
+      answerBox.classList.add("active");
+      answerBox.textContent = q.input;
     }
 
     if (q.done) {
@@ -1810,38 +1354,30 @@
         work
       );
 
-      const controls =
-        addText(
-          "div",
-          "controls",
-          "",
-          work
-        );
+      const controls = addText(
+        "div",
+        "controls",
+        "",
+        work
+      );
 
       makeControl(
         controls,
         "← 1桁戻す",
         () => moveDivision(-1),
-        {
-          disabled:
-            q.divisionShift === 0
-        }
+        { disabled: q.divisionShift === 0 }
       );
 
       makeControl(
         controls,
         "両方を右へ1桁 →",
         () => moveDivision(1),
-        {
-          primary: true
-        }
+        { primary: true }
       );
 
       addText(
         "p",
-        `feedback ${
-          feedback.kind
-        }`,
+        `feedback ${feedback.kind}`,
         feedback.message,
         work
       );
@@ -1851,8 +1387,7 @@
 
     if (
       operation === "multiply" &&
-      currentTask?.type ===
-        "answerShift"
+      currentTask?.type === "answerShift"
     ) {
       addText(
         "p",
@@ -1864,20 +1399,17 @@
       addText(
         "p",
         "shift-counter",
-        `左へ ${
-          q.answerShift
-        }桁 移動しました。` +
+        `左へ${q.answerShift}桁移動しました。` +
         "元の2つの数の小数部分は、合計で何桁かな？",
         work
       );
 
-      const controls =
-        addText(
-          "div",
-          "controls",
-          "",
-          work
-        );
+      const controls = addText(
+        "div",
+        "controls",
+        "",
+        work
+      );
 
       makeControl(
         controls,
@@ -1885,8 +1417,7 @@
         () => moveAnswerPoint(1),
         {
           primary: true,
-          disabled:
-            q.answerShift >= 4
+          disabled: q.answerShift >= 4
         }
       );
 
@@ -1894,10 +1425,7 @@
         controls,
         "小数点を右へ1桁 →",
         () => moveAnswerPoint(-1),
-        {
-          disabled:
-            q.answerShift === 0
-        }
+        { disabled: q.answerShift === 0 }
       );
 
       makeControl(
@@ -1908,9 +1436,7 @@
 
       addText(
         "p",
-        `feedback ${
-          feedback.kind
-        }`,
+        `feedback ${feedback.kind}`,
         feedback.message,
         work
       );
@@ -1925,13 +1451,12 @@
       work
     );
 
-    const keypad =
-      addText(
-        "div",
-        "keypad",
-        "",
-        work
-      );
+    const keypad = addText(
+      "div",
+      "keypad",
+      "",
+      work
+    );
 
     [
       "7", "8", "9",
@@ -1946,27 +1471,23 @@
         {
           disabled:
             key === "." &&
-            currentTask.type !==
-              "answer"
+            currentTask.type !== "answer"
         }
       );
     });
 
-    const controls =
-      addText(
-        "div",
-        "controls",
-        "",
-        work
-      );
+    const controls = addText(
+      "div",
+      "controls",
+      "",
+      work
+    );
 
     makeControl(
       controls,
       "この段を確認",
       checkCurrent,
-      {
-        primary: true
-      }
+      { primary: true }
     );
 
     makeControl(
@@ -1974,63 +1495,42 @@
       "入力を消す",
       () => {
         q.input = "";
-
-        feedback = {
-          message: "",
-          kind: ""
-        };
-
+        feedback = { message: "", kind: "" };
         render();
       }
     );
 
     addText(
       "p",
-      `feedback ${
-        feedback.kind
-      }`,
+      `feedback ${feedback.kind}`,
       feedback.message,
       work
     );
   }
 
   function moveDivision(direction) {
-    if (
-      finished ||
-      timeIsUp()
-    ) {
-      return;
-    }
+    if (finished || timeIsUp()) return;
 
-    const q =
-      questions[selected];
+    const q = questions[selected];
 
     if (
       !q ||
       operation !== "divide" ||
-      q.divisionShift >=
-        q.requiredShifts
+      q.divisionShift >= q.requiredShifts
     ) {
       return;
     }
 
-    const next =
-      q.divisionShift +
-      direction;
+    const next = q.divisionShift + direction;
 
-    if (
-      next < 0 ||
-      next >
-        q.requiredShifts
-    ) {
+    if (next < 0 || next > q.requiredShifts) {
       return;
     }
 
     q.divisionShift = next;
 
     feedback =
-      q.divisionShift ===
-      q.requiredShifts
+      q.divisionShift === q.requiredShifts
         ? {
             message:
               "小数点の移動が完了！ 商を入力しましょう。",
@@ -2046,68 +1546,42 @@
   }
 
   function moveAnswerPoint(direction) {
-    if (
-      finished ||
-      timeIsUp()
-    ) {
-      return;
-    }
+    if (finished || timeIsUp()) return;
 
-    const q =
-      questions[selected];
+    const q = questions[selected];
 
     if (
       !q ||
-      operation !==
-        "multiply" ||
-      q.tasks[
-        q.progress
-      ]?.type !==
-        "answerShift"
+      operation !== "multiply" ||
+      q.tasks[q.progress]?.type !== "answerShift"
     ) {
       return;
     }
 
-    const next =
-      q.answerShift +
-      direction;
+    const next = q.answerShift + direction;
 
-    if (
-      next < 0 ||
-      next > 4
-    ) {
-      return;
-    }
+    if (next < 0 || next > 4) return;
 
     q.answerShift = next;
-
-    feedback = {
-      message: "",
-      kind: ""
-    };
-
+    feedback = { message: "", kind: "" };
     render();
   }
 
   function completeQuestion(q) {
     q.done = true;
-    q.progress =
-      q.tasks.length;
-
+    q.progress = q.tasks.length;
     q.input = "";
     score++;
 
-    const next =
-      questions.findIndex(
-        item => !item.done
-      );
+    const next = questions.findIndex(
+      item => !item.done
+    );
 
     if (next !== -1) {
       selected = next;
 
       feedback = {
-        message:
-          "1問正解！ 次の問題です。",
+        message: "1問正解！ 次の問題です。",
         kind: "ok"
       };
 
@@ -2118,15 +1592,13 @@
       createSheet();
 
       feedback = {
-        message:
-          "6問クリア！ 次の問題に進みます。",
+        message: "6問クリア！ 次の問題に進みます。",
         kind: "ok"
       };
 
     } else {
       feedback = {
-        message:
-          "全問正解です！",
+        message: "全問正解です！",
         kind: "ok"
       };
     }
@@ -2135,37 +1607,24 @@
   }
 
   function confirmMultiplicationAnswer() {
-    if (
-      finished ||
-      timeIsUp()
-    ) {
-      return;
-    }
+    if (finished || timeIsUp()) return;
 
-    const q =
-      questions[selected];
+    const q = questions[selected];
 
     if (
       !q ||
       q.done ||
-      operation !==
-        "multiply" ||
-      q.tasks[
-        q.progress
-      ]?.type !==
-        "answerShift"
+      operation !== "multiply" ||
+      q.tasks[q.progress]?.type !== "answerShift"
     ) {
       return;
     }
 
-    if (
-      q.answerShift !==
-      q.answerPlaces
-    ) {
+    if (q.answerShift !== q.answerPlaces) {
       feedback = {
         message:
           "小数点の位置をもう一度考えましょう。" +
-          "元の2つの数の小数部分が、合わせて何桁か数えてみましょう。",
+          "元の2つの数の小数部分を合わせて何桁か数えましょう。",
         kind: "ng"
       };
 
@@ -2177,145 +1636,74 @@
   }
 
   function enterKey(key) {
-    if (
-      finished ||
-      timeIsUp()
-    ) {
-      return;
-    }
+    if (finished || timeIsUp()) return;
 
-    const q =
-      questions[selected];
-
-    if (
-      !q ||
-      q.done
-    ) {
-      return;
-    }
+    const q = questions[selected];
+    if (!q || q.done) return;
 
     if (
       operation === "divide" &&
-      q.divisionShift <
-        q.requiredShifts
+      q.divisionShift < q.requiredShifts
     ) {
       return;
     }
 
-    const task =
-      q.tasks[q.progress];
+    const task = q.tasks[q.progress];
 
-    if (
-      !task ||
-      task.type ===
-        "answerShift"
-    ) {
+    if (!task || task.type === "answerShift") {
       return;
     }
 
-    let maxLength;
-
-    switch (task.type) {
-      case "answer":
-        maxLength = 8;
-        break;
-
-      case "quotient":
-        maxLength = 1;
-        break;
-
-      case "sum":
-        maxLength = 5;
-        break;
-
-      case "partial":
-        maxLength = 3;
-        break;
-
-      default:
-        maxLength = 3;
-    }
+    const maxLength = task.type === "answer"
+      ? 8
+      : task.type === "sum"
+        ? 5
+        : task.type === "quotient"
+          ? 1
+          : 3;
 
     if (key === "⌫") {
-      q.input =
-        q.input.slice(
-          0,
-          -1
-        );
+      q.input = q.input.slice(0, -1);
 
-    } else if (
-      key === "."
-    ) {
+    } else if (key === ".") {
       if (
-        task.type ===
-          "answer" &&
-        !q.input.includes(
-          "."
-        )
+        task.type === "answer" &&
+        !q.input.includes(".")
       ) {
-        q.input +=
-          q.input === ""
-            ? "0."
-            : ".";
+        q.input += q.input === "" ? "0." : ".";
       }
 
     } else if (
       /^[0-9]$/.test(key) &&
-      q.input.length <
-        maxLength
+      q.input.length < maxLength
     ) {
       q.input += key;
     }
 
-    feedback = {
-      message: "",
-      kind: ""
-    };
-
+    feedback = { message: "", kind: "" };
     render();
   }
 
   function checkCurrent() {
-    if (
-      finished ||
-      timeIsUp()
-    ) {
-      return;
-    }
+    if (finished || timeIsUp()) return;
 
-    const q =
-      questions[selected];
-
-    if (
-      !q ||
-      q.done
-    ) {
-      return;
-    }
+    const q = questions[selected];
+    if (!q || q.done) return;
 
     if (
       operation === "divide" &&
-      q.divisionShift <
-        q.requiredShifts
+      q.divisionShift < q.requiredShifts
     ) {
       return;
     }
 
-    const task =
-      q.tasks[q.progress];
+    const task = q.tasks[q.progress];
 
-    if (
-      !task ||
-      task.type ===
-        "answerShift"
-    ) {
+    if (!task || task.type === "answerShift") {
       return;
     }
 
-    if (
-      q.input === "" ||
-      q.input === "."
-    ) {
+    if (q.input === "" || q.input === ".") {
       feedback = {
         message:
           "黄色い場所に数字を入力してください。",
@@ -2340,27 +1728,19 @@
       return;
     }
 
-    const completedTask =
-      task;
+    const completedTask = task;
 
     q.progress++;
     q.input = "";
 
-    if (
-      q.progress ===
-      q.tasks.length
-    ) {
+    if (q.progress === q.tasks.length) {
       completeQuestion(q);
       return;
     }
 
     if (
-      operation ===
-        "multiply" &&
-      q.tasks[
-        q.progress
-      ].type ===
-        "answerShift"
+      operation === "multiply" &&
+      q.tasks[q.progress].type === "answerShift"
     ) {
       feedback = {
         message:
@@ -2369,25 +1749,21 @@
       };
 
     } else if (
-      operation ===
-        "divide" &&
-      completedTask.type ===
-        "quotient" &&
-      completedTask.expected ===
-        "0"
+      operation === "divide" &&
+      completedTask.type === "quotient" &&
+      completedTask.expected === "0"
     ) {
       feedback = {
         message:
           completedTask.step === 0
             ? "正解！ 商に小数点が付きました。引き算を飛ばして0を下ろします。"
-            : "正解！ この位は引き算を飛ばして次の商へ進みます。",
+            : "正解！ この位は引き算を飛ばして次へ進みます。",
         kind: "ok"
       };
 
     } else {
       feedback = {
-        message:
-          "正解！ 次の段へ進みます。",
+        message: "正解！ 次の段へ進みます。",
         kind: "ok"
       };
     }
@@ -2395,127 +1771,79 @@
     render();
   }
 
-  /*
-    キーボード・物理テンキーにも対応。
-    わり算の小数点移動中：左右矢印。
-    かけ算の答えの小数点移動中：左右矢印。
-  */
-  window.addEventListener(
-    "keydown",
-    event => {
-      if (
-        $("app").hidden ||
-        finished ||
-        event.altKey ||
-        event.ctrlKey ||
-        event.metaKey
-      ) {
-        return;
-      }
-
-      if (timeIsUp()) {
-        return;
-      }
-
-      const q =
-        questions[selected];
-
-      if (
-        !q ||
-        q.done
-      ) {
-        return;
-      }
-
-      if (
-        operation ===
-          "divide" &&
-        q.divisionShift <
-          q.requiredShifts
-      ) {
-        if (
-          event.key ===
-          "ArrowRight"
-        ) {
-          event.preventDefault();
-          moveDivision(1);
-
-        } else if (
-          event.key ===
-          "ArrowLeft"
-        ) {
-          event.preventDefault();
-          moveDivision(-1);
-        }
-
-        return;
-      }
-
-      if (
-        operation ===
-          "multiply" &&
-        q.tasks[
-          q.progress
-        ]?.type ===
-          "answerShift"
-      ) {
-        if (
-          event.key ===
-          "ArrowLeft"
-        ) {
-          event.preventDefault();
-          moveAnswerPoint(1);
-
-        } else if (
-          event.key ===
-          "ArrowRight"
-        ) {
-          event.preventDefault();
-          moveAnswerPoint(-1);
-
-        } else if (
-          event.key ===
-          "Enter"
-        ) {
-          event.preventDefault();
-          confirmMultiplicationAnswer();
-        }
-
-        return;
-      }
-
-      if (
-        /^[0-9]$/.test(
-          event.key
-        )
-      ) {
-        event.preventDefault();
-        enterKey(event.key);
-
-      } else if (
-        event.key === "." ||
-        event.code ===
-          "NumpadDecimal"
-      ) {
-        event.preventDefault();
-        enterKey(".");
-
-      } else if (
-        event.key ===
-        "Backspace"
-      ) {
-        event.preventDefault();
-        enterKey("⌫");
-
-      } else if (
-        event.key ===
-        "Enter"
-      ) {
-        event.preventDefault();
-        checkCurrent();
-      }
+  /* キーボード・物理テンキーにも対応 */
+  window.addEventListener("keydown", event => {
+    if (
+      $("app").hidden ||
+      finished ||
+      event.altKey ||
+      event.ctrlKey ||
+      event.metaKey
+    ) {
+      return;
     }
-  );
+
+    if (timeIsUp()) return;
+
+    const q = questions[selected];
+    if (!q || q.done) return;
+
+    if (
+      operation === "divide" &&
+      q.divisionShift < q.requiredShifts
+    ) {
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        moveDivision(1);
+
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        moveDivision(-1);
+      }
+
+      return;
+    }
+
+    if (
+      operation === "multiply" &&
+      q.tasks[q.progress]?.type === "answerShift"
+    ) {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        moveAnswerPoint(1);
+
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        moveAnswerPoint(-1);
+
+      } else if (event.key === "Enter") {
+        event.preventDefault();
+        confirmMultiplicationAnswer();
+      }
+
+      return;
+    }
+
+    if (/^[0-9]$/.test(event.key)) {
+      event.preventDefault();
+      enterKey(event.key);
+
+    } else if (
+      event.key === "." ||
+      event.code === "NumpadDecimal"
+    ) {
+      event.preventDefault();
+      enterKey(".");
+
+    } else if (event.key === "Backspace") {
+      event.preventDefault();
+      enterKey("⌫");
+
+    } else if (event.key === "Enter") {
+      event.preventDefault();
+      checkCurrent();
+    }
+  });
 
   function choose(newOperation) {
     operation = newOperation;
